@@ -1,6 +1,5 @@
 from photos.models import Location, Photo
 from django.shortcuts import render
-from django.http  import HttpResponse
 
 # Create your views here.
 # view is a function that takes the request from a user, processes it and returns a response to the user.
@@ -8,7 +7,7 @@ from django.http  import HttpResponse
 # Create your views here.
 def index(request):
     photos = Photo.show_all_photos()
-    return render(request, "gallery/index.html", context={"photos":photos})
+    return render(request, "photos/index.html",{"photo":photos})
 
 def search(request):
     
@@ -18,17 +17,17 @@ def search(request):
         results = len(searched_photos)
         message = "{}".format(search_term)
         
-        return render(request, "gallery/search.html", context={"message":message,
+        return render(request, "photos/search.html", context={"message":message,
                                                                "photos":searched_photos,
                                                                "results":results})
     else:
         message = "You have not searched for any photo"
-        return render(request, "gallery/search.html", context={"message":message})
+        return render(request, "photos/search.html", context={"message":message})
 
 def browse(request):
     photos = Photo.show_all_photos()
     locations = Location.objects.all()
-    return render(request, "gallery/browse.html", context={"photos":photos,
+    return render(request, "photos/browse.html", context={"photos":photos,
                                                            "locations":locations})
 
 def location_filter(request, id):
@@ -37,7 +36,7 @@ def location_filter(request, id):
     location = Location.objects.get(id = id)
     locations = Location.objects.all()
 
-    return render(request, "gallery/location.html", context={"photos":photos,
+    return render(request, "photos/location.html", context={"photos":photos,
                                                              "results":results,
                                                              "location":location,
                                                              "locations":locations}) 

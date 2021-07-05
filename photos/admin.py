@@ -1,5 +1,5 @@
 from django.contrib import admin
-from gallery.models import Photo, Location, Category
+from .models import Photo, Location, Category
 
 class PhotoAdmin(admin.ModelAdmin):
     filter_horizontal =('categories',)

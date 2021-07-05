@@ -54,8 +54,7 @@ class Photo(models.Model):
     description = models.TextField()
     location = models.ForeignKey(Location)
     categories = models.ManyToManyField(Category)
-    post_date = models.DateTimeField(auto_now_add=True)
-    image = ImageField(blank=True, manual_crop="800x800")
+    image =models.ImageField(upload_to='images/',blank=True)
 
     def __str__(self):
         """
@@ -72,14 +71,14 @@ class Photo(models.Model):
     @classmethod
     def copy_url(cls, id):
         photo = cls.objects.get(id = id)
-        pyperclip.copy(photo.image.url)
+        
   
     @classmethod
     def show_all_photos(cls):
         """
         A method to return all photos posted in order of the most recent to oldest
         """
-        return cls.objects.order_by("post_date")[::-1]
+        return cls.objects.all()
 
     @classmethod
     def show_random_photo(cls):
