@@ -1,0 +1,16 @@
+{%extends "gallery/base.html"%} {%block content%}
+{%if results == 1%}
+{{results}} photo taken in {{location.city}}, {{location.country}}
+{%else%}
+{{results}} photos taken in {{location.city}}, {{location.country}}
+{%endif%}
+Locations
+{%for location in locations%} {{location.city}}, {{location.country}} {%endfor%}
+{%for photo in photos%}
+ {{photo.name}} {{photo.description}}
+{{photo.location.city}}, {{photo.location.country}}
+
+
+{{photo.post_date | timesince}} ago
+{%endfor%}
+{%endblock%}
