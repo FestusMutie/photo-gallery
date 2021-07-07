@@ -11,6 +11,7 @@ This is a web application that enables the user to post photos,and see different
 Clone the repository to your local directory in your computer Install python3 in your computer Run python3 in the terminal and get started
 # Technologies Used:
 Python(django)
+GIT
 
 # Support and Contact details:
 Email:mutiefestus84@gmail.com
