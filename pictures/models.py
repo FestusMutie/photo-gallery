@@ -27,7 +27,7 @@ class Location(models.Model):
 class Image(models.Model):
     # var uploader = new ImageUploader(config)
     name = models.CharField(max_length=60)
-    description = models.TextField()
+    description = models.CharField(max_length=30)
     author = models.CharField(max_length=40, default='admin')
     image = models.ImageField(upload_to= 'pictures/')
     date = models.DateTimeField(auto_now_add=True)
