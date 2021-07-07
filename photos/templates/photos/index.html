@@ -1,7 +1,0 @@
-{%extends "base.html"%} {%block content%}
-{%for photo in photos%}
- {{photo.name}} {{photo.description}}
-{{photo.location.city}}, {{photo.location.country}}
-{{photo.post_date | timesince}} ago
-{%endfor%}
-{%endblock%}
