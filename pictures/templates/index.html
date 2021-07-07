@@ -15,19 +15,19 @@
 </style>
 <div class="container-fluid landing">
     <div class="col-md-9 ">
-        <h1 style="color:darkblue;">✨Welcome to my photo gallery✨</h1>
+        <h1 style="color:darkblue;text-align: center;">✨Welcome to my photo gallery✨</h1>
 </div>
 <div class="container-fluid boded" id="b">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <h3>Pictures</h3>
+                <h3 class="btn btn-primary"style="text-align:center;" >📷Photos</h3>
             </div>
             <div class="col-md-5">
             <span id="locations">
                 {% for location in locations %}
-                    <a class="btn btn-outline-info btn-sm" id="btn"
-                       href="/location/{{location.name}}">{{location.name}}</a>
+                    <a class="btn btn-primary btn-sm" id="btn"
+                       href="/location/{{location.name}}">📍{{location.name}}</a>
                 {%endfor%}
              </span>
             </div>
@@ -51,14 +51,14 @@
                         <div class="modal-body">
                             <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid">
                             <p class="imgdesc text-center">{{image.description}}</p>
-                            <span class="btn btn-sm btn-outline-success">{{image.category}}</span> <a
-                                href="/location/{{image.location}}" class="btn btn-sm btn-outline-info">{{image.location}}</a>
+                            <span class="btn btn-sm btn-success">{{image.category}}</span> <a
+                                href="/location/{{image.location}}" class="btn btn-sm btn-info">{{image.location}}</a>
                         </div>
                         <div class="modal-footer">
                             <input class="form-control input-lg" type="text"
                                    value="{{image.image.url}}" id="{{image.id}}.url">
-                            <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
-                            <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close
+                            <button class="btn btn-info btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
+                            <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close
                             </button>
                         </div>
                     </div>
